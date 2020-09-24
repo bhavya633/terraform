@@ -4,7 +4,7 @@ locals {
 
 resource "aws_instance" "this" {
   count = var.instance_count
-
+  aws_region       = var.region
   ami              = var.ami
   instance_type    = var.instance_type
   user_data        = var.user_data
@@ -18,7 +18,6 @@ resource "aws_instance" "this" {
   get_password_data      = var.get_password_data
   vpc_security_group_ids = var.vpc_security_group_ids
   iam_instance_profile   = var.iam_instance_profile
-  aws_region             = var.region
 
   associate_public_ip_address = var.associate_public_ip_address
   private_ip                  = length(var.private_ips) > 0 ? element(var.private_ips, count.index) : var.private_ip
