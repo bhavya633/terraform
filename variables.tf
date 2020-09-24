@@ -3,6 +3,9 @@ variable "name" {
   type        = string
   default     = "bhavya-test"
 }
+variable "region" {
+  default = "ap-south-1"
+}
 
 variable "instance_count" {
   description = "Number of instances to launch"
